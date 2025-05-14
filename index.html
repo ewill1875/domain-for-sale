@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
+        body {
+            font-family: 'Mukta Mahee', sans-serif;
+        }
+
         .bg-green {
             background-color: #28a745;
         }
@@ -19,100 +23,86 @@
             color: #28a745;
         }
 
+        .hero {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .section {
+            padding: 2rem 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
         .icon-md {
             font-size: 2rem;
         }
 
-        .vMiddle {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
+        .contact-info p {
+            margin: 0;
         }
 
-        .hero {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .col-fixed {
-                flex: 1 1 auto;
-                padding: 1rem;
-            }
-
-            .action-icons .col-sm-4 {
-                margin-bottom: 1rem;
+        @media (min-width: 768px) {
+            .section {
+                max-width: 600px;
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 <body>
-    <section class="bg-alt hero p-0">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 bg-faded text-center col-fixed">
-                    <div class="vMiddle">
-                        <h1 class="pt-4 h2">
-                            <span class="text-green">breakpt.org</span>
-                            <small>available for sale</small>
-                        </h1>
-                        <p class="mt-4">For instant purchase. Please make an order.</p>
-                        <div class="pt-5">
-                            <a class="btn text-white bg-green btn-lg">Buy now for £1500</a>
-                        </div>
-                        <div class="row d-flex justify-content-center text-primary action-icons mt-4">
-                            <div class="col-sm-4 text-center">
-                                <p><em class="ion-ios-telephone-outline icon-md"></em></p>
-                                <p class="lead"><a href="tel:+441604343042">+44 01604 343042</a></p>
-                            </div>
-                            <div class="col-sm-4 text-center">
-                                <p><em class="ion-ios-chatbubble-outline icon-md"></em></p>
-                                <p class="lead"><a href="mailto:euan@ewedesigns.co.uk">euan@ewedesigns.co.uk</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <section class="bg-alt">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <form id="main-offer-form" action="contact.php" method="post" data-netlify="true">
-                                        <h2 class="text-primary">Interested in this domain?</h2>
-                                        <hr/>
-                                        <div class="form-group">
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Full name (Required)">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" name="email" class="form-control" placeholder="Email (Required)">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="phone" class="form-control" placeholder="Phone number (Required)">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" name="price" class="form-control" min="0" placeholder="Offer price in USD? (Required)">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea name="comments" class="form-control" placeholder="Message (optional)"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <div id="recaptcha" class="g-recaptcha" data-sitekey="6Lc_sf8aAAAAAFk3KIcYvqcIoo1HeCOZu4faK3DA" data-callback="onSubmit" data-size="invisible"></div>
-                                        </div>
-                                        <button type="submit" class="btn text-white btn-lg bg-primary btn-block">Make an offer</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
+    <!-- Hero Section -->
+    <section class="bg-alt hero">
+        <h1 class="h2">
+            <span class="text-green">breakpt.org</span>
+            <small>available for sale</small>
+        </h1>
+        <p>For instant purchase. Please make an order.</p>
+        <a class="btn text-white bg-green btn-lg">Buy now for £1500</a>
+    </section>
+
+    <!-- Form Section -->
+    <section class="bg-alt section">
+        <h2 class="text-primary">Interested in this domain?</h2>
+        <form id="main-offer-form" action="contact.php" method="post" data-netlify="true">
+            <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Full name (Required)">
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Email (Required)">
+            </div>
+            <div class="form-group">
+                <input type="text" name="phone" class="form-control" placeholder="Phone number (Required)">
+            </div>
+            <div class="form-group">
+                <input type="number" name="price" class="form-control" min="0" placeholder="Offer price in USD? (Required)">
+            </div>
+            <div class="form-group">
+                <textarea name="comments" class="form-control" placeholder="Message (optional)"></textarea>
+            </div>
+            <div class="form-group">
+                <div id="recaptcha" class="g-recaptcha" data-sitekey="6Lc_sf8aAAAAAFk3KIcYvqcIoo1HeCOZu4faK3DA" data-callback="onSubmit" data-size="invisible"></div>
+            </div>
+            <button type="submit" class="btn text-white btn-lg bg-primary btn-block">Make an offer</button>
+        </form>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="bg-alt section contact-info text-center">
+        <div class="row">
+            <div class="col-12">
+                <p><em class="ion-ios-telephone-outline icon-md"></em></p>
+                <p class="lead"><a href="tel:+441604343042">+44 01604 343042</a></p>
+            </div>
+            <div class="col-12 mt-3">
+                <p><em class="ion-ios-chatbubble-outline icon-md"></em></p>
+                <p class="lead"><a href="mailto:euan@ewedesigns.co.uk">euan@ewedesigns.co.uk</a></p>
             </div>
         </div>
     </section>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script>
